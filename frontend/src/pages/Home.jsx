@@ -3,8 +3,7 @@ import logo from "../assets/logo.png";
 
 function Home() {
     return (
-        <section id="home" className="relative h-screen w-full overflow-hidden">
-
+        <section id="home" className="relative h-screen w-full overflow-hidden pt-20">
             {/* Background */}
             <img
                 src={background}
