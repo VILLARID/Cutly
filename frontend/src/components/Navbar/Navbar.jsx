@@ -26,9 +26,8 @@ function Navbar() {
                 <img
                     src={logo}
                     alt="Cutly Logo"
-                    className={`h-10 w-10 object-contain rounded-full transition ${
-                        scrolled ? "bg-orange-300/20" : "bg-orange-300/20"
-                    }`}
+                    className={`h-10 w-10 object-contain rounded-full transition ${scrolled ? "bg-orange-300/20" : "bg-orange-300/20"
+                        }`}
                 />
                 <h1 className="text-xl tracking-wide">Cutly</h1>
             </div>
@@ -40,8 +39,8 @@ function Navbar() {
             {/* Desktop links */}
             <div className="hidden md:flex gap-6 text-sm">
                 <a href="#home" className="hover:opacity-70 transition">Home</a>
-                <a href="#services" className="hover:opacity-70 transition">Services</a>
                 <a href="#about" className="hover:opacity-70 transition">About</a>
+                <a href="#services" className="hover:opacity-70 transition">Services</a>
                 <a href="#contact" className="hover:opacity-70 transition">Contact</a>
             </div>
         </nav>
