@@ -13,7 +13,7 @@ function Gallery() {
         <>
             <section
                 id="services"
-                className="relative w-full min-h-screen pt-24 px-6 bg-[#f9fafb]"
+                className="relative w-full min-h-screen pt-24 px-6 bg-[#f9fafb] pb-24"
             >
 
                 {/* Header */}

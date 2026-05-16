@@ -5,6 +5,7 @@ import Services from "./pages/Services"
 import Gallery from "./pages/Gallery"
 import Testimonials from "./pages/Testimonials"
 import GetInTouch from "./pages/GetInTouch"
+import Footer from "./pages/Footer"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Gallery />
       <Testimonials />
       <GetInTouch />
+      <Footer />
     </>
   )
 }
