@@ -3,7 +3,7 @@ import AboutImg from "../assets/About/AboutImg.png";
 function AboutUs() {
     return (
         <>
-            <section id="about" className="relative h-screen w-full overflow-hidden pt-20 pl-5 pr-5 pb-24">
+            <section id="about" className="relative h-screen w-full overflow-hidden pt-24 pl-5 pr-5 pb-24">
 
                 <div className="flex justify-center bg-[#fef3c6] rounded-full w-20 py-1">
                     <p className="text-[#d58a3b] text-sm">About Us</p>
