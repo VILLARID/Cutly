@@ -1,9 +1,9 @@
-import Cut1 from "../Assets/Gallery/Cut1.jpg";
-import Cut2 from "../Assets/Gallery/Cut2.jpg";
-import Cut3 from "../Assets/Gallery/Cut3.jpg";
-import Cut4 from "../Assets/Gallery/Cut4.jpg";
-import Cut5 from "../Assets/Gallery/Cut5.jpg";
-import Cut6 from "../Assets/Gallery/Cut6.jpg";
+import Cut1 from "../assets/Gallery/Cut1.jpg";
+import Cut2 from "../assets/Gallery/Cut2.jpg";
+import Cut3 from "../assets/Gallery/Cut3.jpg";
+import Cut4 from "../assets/Gallery/Cut4.jpg";
+import Cut5 from "../assets/Gallery/Cut5.jpg";
+import Cut6 from "../assets/Gallery/Cut6.jpg";
 
 function Gallery() {
 
