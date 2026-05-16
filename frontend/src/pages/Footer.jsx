@@ -1,94 +1,102 @@
-import logo from "../assets/logo.png"
-
+import white_logo from "../assets/Home/white_logo.png";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 function Footer() {
+
     return (
-        <>
-            <footer className="bg-[#101522] text-white px-6 py-14">
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        <footer className="bg-[#0d111b] text-white px-6 pt-10 pb-6">
 
-                    {/* Brand */}
-                    <div className="flex flex-col gap-4">
+            <div className="max-w-7xl mx-auto flex flex-col gap-8">
 
-                        <div className="flex items-center gap-3">
-                            <div className="bg-[#262d3e] p-3 rounded-xl">
-                                <img src={logo} alt="" className="size-7"/>
-                            </div>
+                {/* Top */}
+                <div className="flex flex-col items-center text-center">
 
-                            <h2 className="text-2xl font-bold">
-                                Cutly
-                            </h2>
-                        </div>
+                    <div className="flex items-center gap-3">
 
-                        <p className="text-gray-400 leading-relaxed">
-                            Precision cuts, timeless style, and a premium
-                            grooming experience crafted for every client.
-                        </p>
+                        <img
+                            src={white_logo}
+                            alt="Cutly Logo"
+                            className="size-10"
+                        />
+
+                        <h2 className="text-2xl font-bold">
+                            Cutly
+                        </h2>
+
                     </div>
 
-                    {/* Navigation */}
-                    <div>
-                        <h3 className="font-semibold text-lg mb-4 text-[#d58a3b]">
-                            Navigation
-                        </h3>
+                    <p className="text-gray-400 mt-3 text-sm max-w-sm">
 
-                        <ul className="flex flex-col gap-3 text-gray-400">
-                            <li className="hover:text-white cursor-pointer transition">
-                                Home
-                            </li>
+                        Precision cuts and premium grooming
+                        for a modern style.
 
-                            <li className="hover:text-white cursor-pointer transition">
-                                Services
-                            </li>
+                    </p>
 
-                            <li className="hover:text-white cursor-pointer transition">
-                                Gallery
-                            </li>
+                </div>
 
-                            <li className="hover:text-white cursor-pointer transition">
-                                Testimonials
-                            </li>
-                        </ul>
-                    </div>
+                {/* Navigation */}
+                <div className="flex justify-center flex-wrap gap-6 text-gray-400 text-sm">
 
-                    {/* Contact */}
-                    <div>
-                        <h3 className="font-semibold text-lg mb-4 text-[#d58a3b]">
-                            Contact
-                        </h3>
+                    <a href="#home" className="hover:text-[#fe9a00] transition">
+                        Home
+                    </a>
 
-                        <div className="flex flex-col gap-4 text-gray-400">
+                    <a href="#services" className="hover:text-[#fe9a00] transition">
+                        Services
+                    </a>
 
-                            <div className="flex items-center gap-3">
-                                <MapPin className="size-4" />
-                                <span>123 Main Street, NY</span>
-                            </div>
+                    <a href="#gallery" className="hover:text-[#fe9a00] transition">
+                        Gallery
+                    </a>
 
-                            <div className="flex items-center gap-3">
-                                <Phone className="size-4" />
-                                <span>+1 (555) 123-4567</span>
-                            </div>
+                    <a href="#testimonials" className="hover:text-[#fe9a00] transition">
+                        Reviews
+                    </a>
 
-                            <div className="flex items-center gap-3">
-                                <Clock className="size-4" />
-                                <span>Mon - Sat: 9AM–8PM</span>
-                            </div>
+                    <a href="#contact" className="hover:text-[#fe9a00] transition">
+                        Contact
+                    </a>
 
+                </div>
+
+                {/* Contact */}
+                <div className="flex flex-col items-center gap-4 text-gray-400 text-sm">
+
+                    <div className="flex flex-wrap justify-center gap-6">
+
+                        <div className="flex items-center gap-2">
+                            <MapPin className="size-4"/>
+                            <span>123 Main Street, NY</span>
                         </div>
+
+                        <div className="flex items-center gap-2">
+                            <Phone className="size-4"/>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <Clock className="size-4"/>
+                            <span>Mon–Sat: 9AM–8PM</span>
+                        </div>
+
                     </div>
 
                 </div>
 
                 {/* Bottom */}
-                <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500">
-                    © 2026 BarberShop. All rights reserved.
+                <div className="border-t border-white/10 pt-5 text-center text-gray-500 text-sm">
+
+                    © 2026 Cutly. All rights reserved.
+
                 </div>
 
-            </footer>
-        </>
+            </div>
+
+        </footer>
+
     );
+
 }
 
 export default Footer;

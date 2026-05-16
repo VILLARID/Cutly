@@ -30,7 +30,7 @@ function GetInTouch() {
         <>
             <section
                 id="contact"
-                className="relative w-full min-h-screen pt-24 pb-24 px-6 bg-[#fffcef]"
+                className="relative w-full min-h-screen pt-30 pb-30 px-6 bg-[#fffcef]"
             >
 
                 {/* Header */}

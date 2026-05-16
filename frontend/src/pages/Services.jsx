@@ -28,7 +28,7 @@ function Services() {
     return (
         <section
             id="services"
-            className="relative w-full min-h-screen pt-24 px-6 bg-[#f9fafb] pb-24"
+            className="relative w-full min-h-screen pt-30 px-6 bg-[#f9fafb] pb-30"
         >
 
             {/* Header */}
