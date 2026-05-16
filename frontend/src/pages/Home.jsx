@@ -1,58 +1,78 @@
 import background from "../assets/Home/background.jpg";
-import logo from "../assets/logo.png";
+import white_logo from "../assets/Home/white_logo.png";
 
 function Home() {
     return (
-        <section id="home" className="relative h-screen w-full overflow-hidden pt-20 pb-24">
-            {/* Background */}
-            <img
-                src={background}
-                alt="Home Background"
-                className="absolute inset-0 w-full h-full object-cover"
-            />
+        <section id="home" className="relative min-h-screen w-full overflow-hidden">
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[#101522]/80" />
+            {/* Background */}
+            <div className="absolute inset-0">
+
+                <img
+                    src={background}
+                    alt="Background"
+                    className="w-full h-full object-cover scale-110 animate-[pulse_8s_ease-in-out_infinite]"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-linear-to-b from-[#101522]/70 via-[#101522]/85 to-black"></div>
+
+            </div>
 
             {/* Content */}
-            <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+            <div className="relative z-10 min-h-screen flex items-center justify-center px-6">
 
-                <div className="flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center text-center">
 
-                    {/* Logo + Title */}
-                    <div className="flex flex-col items-center">
+                    {/* Logo */}
+                    <div className="mb-6 backdrop-blur-lg bg-white/5 border border-white/10 rounded-full p-4">
+
                         <img
-                            src={logo}
+                            src={white_logo}
                             alt="Cutly Logo"
-                            className="h-13 w-13 rounded-full bg-orange-300/15 p-2"
+                            className="w-20 h-20"
                         />
 
-                        <h2 className="text-6xl font-light text-white mt-2">
-                            Cutly
-                        </h2>
-
-                        <hr className="border-t border-[#fe9a00] w-24 my-5" />
                     </div>
 
+                    {/* Main title */}
+                    <h1 className="text-white text-5xl sm:text-7xl font-light leading-tight">
+
+                        Fresh Cuts <br />
+
+                        <span className="font-semibold text-[#fe9a00]">
+                            Clean Style
+                        </span>
+
+                    </h1>
+
                     {/* Subtitle */}
-                    <p className="text-gray-200 text-lg max-w-md">
-                        Fresh cuts. Clean look. Every time.
+                    <p className="text-gray-300 mt-6 max-w-md text-base sm:text-lg leading-relaxed">
+
+                        Premium barber experience with precision cuts,
+                        modern styles and a clean finish every visit.
+
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex flex-col w-full gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
 
-                        <button className="px-6 py-2 bg-[#fe9a00] text-white rounded-full hover:opacity-90 transition">
+                        <button className="px-8 py-3 rounded-full bg-[#fe9a00] text-white font-medium transition duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(254,154,0,0.5)]">
+
                             Book Appointment
+
                         </button>
 
-                        <button className="px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full hover:bg-white/20 transition">
+                        <button className="px-8 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-lg text-white transition duration-300 hover:bg-white/20 hover:scale-105">
+
                             View Services
+
                         </button>
 
                     </div>
 
                 </div>
+
             </div>
 
         </section>
