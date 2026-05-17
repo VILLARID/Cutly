@@ -52,7 +52,7 @@ Planned improvements:
 
 ## 📸 Preview
 
-Coming soon...
+<img width="1867" height="890" alt="image" src="https://github.com/user-attachments/assets/a9bfb74e-8b16-4f51-9de7-2ebfcd38c6ed" />
 
 ---
 
