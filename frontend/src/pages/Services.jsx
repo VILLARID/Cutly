@@ -26,65 +26,78 @@ function Services() {
     ];
 
     return (
-        <section
-            id="services"
-            className="relative w-full min-h-screen pt-30 px-6 bg-[#f9fafb] pb-30"
-        >
+        <section className="relative w-full py-28 px-6 bg-[#f9fafb] overflow-hidden">
 
-            {/* Header */}
-            <div className="flex flex-col items-center text-center gap-4">
+            {/* background blobs */}
+            <div className="absolute top-20 left-10 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#d58a3b]/10 rounded-full blur-3xl" />
 
-                <div className="bg-[#fef3c6] rounded-full px-5 py-2">
-                    <p className="text-[#d58a3b] text-sm">
+            {/* header */}
+            <div className="flex flex-col items-center text-center gap-5">
+
+                <div className="bg-[#fef3c6] px-5 py-2 rounded-full">
+                    <p className="text-[#d58a3b] text-sm font-medium">
                         Our Services
                     </p>
                 </div>
 
-                <h2 className="text-3xl md:text-4xl font-bold text-[#101522]">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#101522]">
                     Premium Grooming
                 </h2>
 
-                <p className="text-gray-600 max-w-md">
-                    Professional services tailored to your unique style and preferences
+                <p className="text-gray-600 max-w-xl">
+                    Professional grooming services designed for your style and confidence.
                 </p>
 
             </div>
 
-            {/* Cards */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* cards */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="w-full rounded-2xl p-5 bg-white shadow flex flex-col gap-3 hover:shadow-lg transition"
+                        className="relative group"
                     >
 
-                        {/* Icon */}
-                        <div className="flex items-center justify-center bg-[#fef3c6] w-12 h-12 rounded-sm">
-                            <Square className="text-[#d58a3b]" />
-                        </div>
+                        {/* floating shape (outside card effect) */}
+                        <div className="absolute -top-4 -right-4 w-10 h-10 bg-[#d58a3b] rotate-45 rounded-md shadow-lg group-hover:rotate-90 transition duration-500" />
 
-                        {/* Info */}
-                        <div className="flex flex-col gap-2">
-                            <h3 className="font-semibold text-lg text-[#101522]">
+                        {/* card */}
+                        <div className="relative bg-white rounded-[28px] p-7 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+
+                            {/* inner decorative corner */}
+                            <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-[#fe9a00]/30 rounded-md rotate-45 blur-[1px]" />
+
+                            {/* icon */}
+                            <div className="w-12 h-12 flex items-center justify-center bg-[#fef3c6] rounded-2xl mb-5 group-hover:scale-110 transition">
+                                <Square className="text-[#d58a3b]" />
+                            </div>
+
+                            {/* title */}
+                            <h3 className="text-xl font-semibold text-[#101522]">
                                 {service.title}
                             </h3>
-                            <p className="text-gray-600 text-sm">
+
+                            {/* desc */}
+                            <p className="text-gray-600 text-sm mt-2 leading-relaxed">
                                 {service.desc}
                             </p>
-                        </div>
 
-                        {/* Footer */}
-                        <div className="flex justify-between items-center mt-2">
-                            <span className="text-[#d58a3b] font-semibold text-xl">
-                                {service.price}
-                            </span>
+                            {/* footer */}
+                            <div className="flex justify-between items-center mt-6">
 
-                            <div className="flex justify-center items-center w-8 h-8 bg-gray-100 rounded-full hover:bg-gray-200 transition">
-                                <MoveRight className="text-gray-400 size-4" />
+                                <span className="text-[#d58a3b] font-bold text-xl">
+                                    {service.price}
+                                </span>
+
+                                <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-[#fef3c6] transition">
+                                    <MoveRight className="text-gray-500 group-hover:text-[#d58a3b] transition size-4" />
+                                </div>
+
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 ))}
 
