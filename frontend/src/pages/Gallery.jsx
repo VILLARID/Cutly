@@ -10,45 +10,70 @@ function Gallery() {
     const images = [Cut1, Cut2, Cut3, Cut4, Cut5, Cut6];
 
     return (
-        <>
-            <section
-                id="gallery"
-                className="relative w-full min-h-screen pt-30 px-6 bg-[#f9fafb] pb-30"
-            >
+        <section
+            id="gallery"
+            className="relative w-full py-28 px-6 bg-[#f9fafb] overflow-hidden"
+        >
 
-                {/* Header */}
-                <div className="flex flex-col items-center text-center gap-4">
+            {/* background glow */}
+            <div className="absolute top-20 left-10 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#d58a3b]/10 rounded-full blur-3xl" />
 
-                    <div className="bg-[#fef3c6] rounded-full px-5 py-2">
-                        <p className="text-[#d58a3b] text-sm">
-                            Gallery
-                        </p>
-                    </div>
+            {/* Header */}
+            <div className="flex flex-col items-center text-center gap-5">
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#101522]">
-                        Our Work Speaks
-                    </h2>
-
-                    <p className="text-gray-600 max-w-md">
-                        Every cut tells a story of precision and style
+                <div className="bg-[#fef3c6] px-5 py-2 rounded-full">
+                    <p className="text-[#d58a3b] text-sm font-medium">
+                        Gallery
                     </p>
-
                 </div>
 
-                {/* Content */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-10 place-items-center">
-                    {images.map((img, index) => (
-                        <img
+                <h2 className="text-4xl md:text-5xl font-bold text-[#101522]">
+                    Our Work Speaks
+                </h2>
+
+                <p className="text-gray-600 max-w-md">
+                    Every cut tells a story of precision, detail, and modern style.
+                </p>
+
+            </div>
+
+            {/* GRID */}
+            <div className="mt-14 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-5">
+
+                {images.map((img, index) => {
+
+                    // makes layout more dynamic
+                    const isLarge = index === 0 || index === 3;
+
+                    return (
+                        <div
                             key={index}
-                            src={img}
-                            alt={`Cut ${index + 1}`}
-                            className="size-50 rounded-2xl object-cover"
-                        />
-                    ))}
-                </div>
-            </section>
-        </>
-    )
+                            className={`relative overflow-hidden rounded-3xl group shadow-sm hover:shadow-xl transition
+                                ${isLarge ? "md:col-span-2 md:row-span-2" : ""}
+                            `}
+                        >
+
+                            {/* image */}
+                            <img
+                                src={img}
+                                alt={`Cut ${index + 1}`}
+                                className="w-full h-full object-cover aspect-square group-hover:scale-110 transition duration-500"
+                            />
+
+                            {/* overlay */}
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition" />
+
+                            {/* subtle corner accent */}
+                            <div className="absolute top-3 right-3 w-6 h-6 bg-[#d58a3b] rotate-45 opacity-80 group-hover:rotate-90 transition" />
+
+                        </div>
+                    );
+                })}
+
+            </div>
+        </section>
+    );
 }
 
 export default Gallery;
