@@ -26,7 +26,7 @@ function Services() {
     ];
 
     return (
-        <section className="relative w-full py-28 px-6 bg-[#f9fafb] overflow-hidden">
+        <section id="services" className="relative w-full py-28 px-6 bg-[#f9fafb] overflow-hidden">
 
             {/* background blobs */}
             <div className="absolute top-20 left-10 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl" />
