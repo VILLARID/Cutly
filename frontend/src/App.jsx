@@ -6,14 +6,20 @@ import Gallery from "./pages/Gallery"
 import Testimonials from "./pages/Testimonials"
 import GetInTouch from "./pages/GetInTouch"
 import Footer from "./pages/Footer"
+import StatsBar from "./components/StatsBar";
 
 function App() {
 
   return (
     <>
       <Navbar />
+
       <Home />
+
+      <StatsBar />
+
       <AboutUs />
+
       <Services />
       <Gallery />
       <Testimonials />
@@ -23,4 +29,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
