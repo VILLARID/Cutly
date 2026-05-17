@@ -30,10 +30,14 @@ function GetInTouch() {
 
         <section
             id="contact"
-            className="w-full py-30 px-5 bg-[#fffcef]"
+            className="relative overflow-hidden w-full py-30 px-6 bg-[#fffcef]"
         >
 
-            <div className="max-w-7xl mx-auto">
+            {/* background effects */}
+            <div className="absolute top-0 left-0 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl"/>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#d58a3b]/10 rounded-full blur-3xl"/>
+
+            <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header */}
 
@@ -41,33 +45,32 @@ function GetInTouch() {
 
                     <div className="bg-[#fef3c6] rounded-full px-5 py-2">
 
-                        <p className="text-[#d58a3b] text-sm">
+                        <p className="text-[#d58a3b] text-sm font-medium">
                             Get In Touch
                         </p>
 
                     </div>
 
-                    <h2 className="text-3xl lg:text-5xl font-bold text-[#101522] mt-6">
+                    <h2 className="text-4xl lg:text-5xl font-bold text-[#101522] mt-6 leading-tight">
 
                         Visit Our Shop
 
                     </h2>
 
-                    <p className="text-gray-500 mt-4 max-w-lg">
+                    <p className="text-gray-500 mt-5 max-w-lg leading-7">
 
-                        Ready for a fresh look? Book your appointment
-                        and experience premium barber service.
+                        Ready for a fresh look? Experience premium grooming
+                        with expert barbers and personalized service.
 
                     </p>
 
                 </div>
 
+                {/* Cards */}
 
-                {/* ================= MOBILE ================= */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
-                <div className="flex flex-col gap-5 mt-12 lg:hidden">
-
-                    {mockData.map((item) => {
+                    {mockData.map((item, index) => {
 
                         const Icon = item.icon;
 
@@ -75,81 +78,63 @@ function GetInTouch() {
 
                             <div
                                 key={item.id}
-                                className="bg-white rounded-3xl shadow-lg p-6 flex items-center gap-5"
+                                className="relative group"
                             >
 
-                                <div className="bg-[#fef3c6] min-w-14 h-14 rounded-2xl flex justify-center items-center">
+                                {/* floating square */}
+                                <div className={`
+                                absolute w-8 h-8 bg-[#d58a3b]
+                                rotate-45 rounded-md shadow-lg
+                                transition duration-500
+                                group-hover:rotate-90
+                                ${index % 2 === 0 ? "-top-3 -right-3" : "-bottom-3 -left-3"}
+                                `}/>
 
-                                    <Icon className="text-[#d58a3b]"/>
+                                {/* card */}
+                                <div className="
+                                relative
+                                bg-white
+                                rounded-[30px]
+                                p-8
+                                border border-gray-100
+                                shadow-sm
+                                hover:shadow-xl
+                                hover:-translate-y-2
+                                transition-all duration-500
+                                ">
 
-                                </div>
+                                    {/* icon */}
+                                    <div className="
+                                    w-16 h-16
+                                    rounded-2xl
+                                    bg-[#fef3c6]
+                                    flex items-center justify-center
+                                    group-hover:scale-110
+                                    transition
+                                    ">
 
-                                <div>
+                                        <Icon
+                                            className="text-[#d58a3b]"
+                                            size={28}
+                                        />
 
-                                    <h3 className="font-semibold text-lg">
+                                    </div>
+
+                                    {/* title */}
+                                    <h3 className="text-xl font-bold mt-7 text-[#101522]">
 
                                         {item.title}
 
                                     </h3>
 
-                                    <p className="text-sm text-gray-500">
+                                    {/* lines */}
+                                    <div className="mt-5 flex flex-col gap-2 text-gray-500">
 
-                                        {item.line1}
+                                        <p>{item.line1}</p>
 
-                                    </p>
+                                        <p>{item.line2}</p>
 
-                                    <p className="text-sm text-gray-500">
-
-                                        {item.line2}
-
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        );
-
-                    })}
-
-                </div>
-
-
-                {/* ================= DESKTOP ================= */}
-
-                <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 mt-16">
-
-                    {mockData.map((item) => {
-
-                        const Icon = item.icon;
-
-                        return (
-
-                            <div
-                                key={item.id}
-                                className="bg-white rounded-3xl p-10 shadow-xl hover:-translate-y-2 transition duration-500"
-                            >
-
-                                <div className="bg-[#fef3c6] w-16 h-16 rounded-2xl flex justify-center items-center">
-
-                                    <Icon
-                                        className="text-[#d58a3b]"
-                                        size={30}
-                                    />
-
-                                </div>
-
-                                <h3 className="text-2xl font-bold mt-8">
-
-                                    {item.title}
-
-                                </h3>
-
-                                <div className="mt-5 text-gray-500 flex flex-col gap-2">
-
-                                    <p>{item.line1}</p>
-
-                                    <p>{item.line2}</p>
+                                    </div>
 
                                 </div>
 
