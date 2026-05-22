@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
+
 import black_logo from "../../assets/Home/black_logo.png";
 import white_logo from "../../assets/Home/white_logo.png";
 
@@ -18,97 +19,124 @@ function Navbar() {
     ];
 
     useEffect(() => {
-
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 40);
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
-
     }, []);
 
     return (
         <>
+            {/* NAVBAR */}
             <nav className="fixed top-0 left-0 w-full z-50 px-4 pt-4">
 
-                <div className={`flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 ${scrolled
-                    ? "bg-white/90 backdrop-blur-xl shadow-xl text-black border border-black/5"
-                    : "bg-transparent text-white"
-                }`}>
+                <div
+                    className={`
+                        flex items-center justify-between px-6 py-4 rounded-2xl
+                        transition-all duration-500 border
+                        ${scrolled
+                            ? "bg-white/80 backdrop-blur-xl shadow-lg border-slate-200"
+                            : "bg-transparent border-transparent"
+                        }
+                    `}
+                >
 
-                    {/* Logo */}
-                    <a href="#home" className="flex items-center gap-3">
+                    {/* LOGO */}
+                    <a href="#home" className="flex items-center gap-3 group">
 
                         <img
                             src={scrolled ? black_logo : white_logo}
                             alt="Cutly Logo"
-                            className={`object-contain transition-all duration-500 ${scrolled ? "size-9" : "size-10"}`}
+                            className="size-9 transition-all duration-500 group-hover:scale-105"
                         />
 
-                        <div>
-
-                            <h1 className="text-2xl font-bold tracking-wide">
+                        <div className="leading-tight">
+                            <h1 className={`text-xl font-semibold tracking-wide transition ${scrolled ? "text-slate-900" : "text-white"}`}>
                                 Cutly
                             </h1>
 
-                            <p className={`text-xs transition ${scrolled ? "text-gray-500" : "text-gray-300"}`}>
-                                Premium Barber
+                            <p className={`text-xs flex items-center gap-1 transition ${scrolled ? "text-slate-500" : "text-white/70"}`}>
+                                <Sparkles size={12} />
+                                Premium Barber Studio
                             </p>
-
                         </div>
 
                     </a>
 
-                    {/* Button */}
+                    {/* MENU BUTTON */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className={`p-2 rounded-xl transition ${scrolled
-                            ? "hover:bg-black/5"
-                            : "hover:bg-white/10"
-                        }`}
+                        className={`
+        p-2 rounded-xl transition
+        ${scrolled
+                                ? "text-slate-900 hover:bg-slate-100"
+                                : "text-white hover:bg-white/10"
+                            }
+    `}
                     >
-
-                        {menuOpen
-                            ? <X size={28}/>
-                            : <Menu size={28}/>
-                        }
-
+                        {menuOpen ? <X size={26} /> : <Menu size={26} />}
                     </button>
 
                 </div>
-
             </nav>
 
-            {/* Mobile menu */}
-            <div className={`fixed top-24 left-4 right-4 z-40 rounded-3xl overflow-hidden transition-all duration-500 ${scrolled
-                ? "bg-white/95 backdrop-blur-xl text-black shadow-xl"
-                : "bg-[#101522]/90 backdrop-blur-xl text-white"
-            } ${menuOpen
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-6 pointer-events-none"
-            }`}>
+            {/* MOBILE MENU OVERLAY */}
+            <div
+                className={`
+                    fixed inset-0 z-40 transition-all duration-500
+                    ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+                `}
+            >
+                {/* blur background */}
+                <div
+                    className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+                    onClick={() => setMenuOpen(false)}
+                />
 
-                <div className="flex flex-col p-6 gap-5">
+                {/* panel */}
+                <div
+                    className={`
+                        absolute top-24 left-4 right-4 rounded-3xl
+                        bg-white shadow-2xl border border-slate-200
+                        transition-all duration-500 p-6
+                        ${menuOpen ? "translate-y-0" : "-translate-y-6"}
+                    `}
+                >
 
-                    {links.map((link) => (
+                    <div className="flex flex-col gap-4">
 
+                        {links.map((link, index) => (
+                            <a
+                                key={index}
+                                href={link.href}
+                                onClick={() => setMenuOpen(false)}
+                                className="
+                                    text-lg text-slate-700
+                                    hover:text-[#fe9a00]
+                                    transition
+                                    py-2
+                                "
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+
+                    </div>
+
+                    {/* CTA inside menu */}
+                    <div className="mt-6 pt-4 border-t border-slate-100">
                         <a
-                            key={link.name}
-                            href={link.href}
+                            href="#contact"
                             onClick={() => setMenuOpen(false)}
-                            className="text-lg hover:text-[#fe9a00] transition"
+                            className="block text-center bg-[#fe9a00] text-white py-3 rounded-xl font-medium hover:shadow-lg transition"
                         >
-
-                            {link.name}
-
+                            Book Appointment
                         </a>
-
-                    ))}
+                    </div>
 
                 </div>
-
             </div>
         </>
     );
