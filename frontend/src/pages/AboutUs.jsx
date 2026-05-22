@@ -2,185 +2,128 @@ import { motion } from "framer-motion";
 import AboutImg from "../assets/About/AboutImg.png";
 
 import {
+    aboutContainer,
     aboutText,
     aboutImage,
-    listContainer,
     listItem,
     imageCard,
-    titleLine
 } from "../animations/about";
 
 function AboutUs() {
-
     const items = [
-        "Expert Barbers",
-        "Premium Products",
-        "Modern Techniques",
-        "Personalized Cuts"
+        "Precision modern haircuts",
+        "Experienced professional barbers",
+        "Personalized styling approach",
+        "Clean, sharp, consistent results",
     ];
 
     return (
-
         <section
             id="about"
-            className="w-full overflow-hidden py-28 px-6 bg-white relative"
+            className="relative w-full py-28 px-6 bg-[#f8fafc] overflow-hidden"
         >
+            {/* soft premium background */}
+            <div className="absolute inset-0">
+                <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] bg-[#fe9a00]/10 blur-3xl rounded-full" />
+                <div className="absolute bottom-0 right-0 w-[26rem] h-[26rem] bg-slate-200/40 blur-3xl rounded-full" />
+            </div>
 
-            {/* Background glow */}
-            <div className="absolute -top-32 -left-24 w-[28rem] h-[28rem] bg-[#fe9a00]/10 rounded-full blur-3xl" />
-
-            <div className="absolute bottom-0 right-0 w-[24rem] h-[24rem] bg-[#d58a3b]/10 rounded-full blur-3xl" />
-
-            <div className="max-w-7xl mx-auto">
-
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* LEFT */}
-
                     <motion.div
-                        variants={aboutText}
+                        variants={aboutContainer}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.4 }}
                     >
-
-                        <div className="inline-flex items-center bg-[#fef3c6] px-5 py-2 rounded-full">
-
-                            <p className="text-[#d58a3b] font-medium tracking-wide">
-
-                                About Us
-
-                            </p>
-
-                        </div>
-
-                        <div className="mt-8">
-
-                            <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-
-                                <span className="text-[#101522]">
-
-                                    Precision meets
-
-                                </span>
-
-                                <br />
-
-                                <span className="text-[#d58a3b]">
-
-                                    modern style
-
-                                </span>
-
-                            </h2>
-
-                            <motion.div
-                                variants={titleLine}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                className="h-1 bg-[#d58a3b] rounded-full mt-6"
-                            />
-
-                        </div>
-
-                        <p className="mt-8 text-gray-600 leading-8 text-lg max-w-xl">
-
-                            At Cutly, we merge traditional barber artistry
-                            with modern techniques to create sharp, clean,
-                            and confident looks tailored to every client.
-
-                        </p>
-
-                        <motion.div
-                            variants={listContainer}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="grid grid-cols-2 gap-6 mt-10"
+                        {/* label */}
+                        <motion.span
+                            variants={aboutText}
+                            className="text-xs tracking-[0.2em] text-slate-500 uppercase"
                         >
+                            About Cutly Studio
+                        </motion.span>
 
+                        {/* headline */}
+                        <motion.h2
+                            variants={aboutText}
+                            className="text-4xl md:text-5xl font-light text-slate-900 mt-4 leading-tight"
+                        >
+                            Sharp cuts,
+                            <br />
+                            <span className="text-[#fe9a00] font-semibold">
+                                modern confidence
+                            </span>
+                        </motion.h2>
+
+                        {/* accent line */}
+                        <motion.div
+                            variants={aboutText}
+                            className="w-16 h-[2px] bg-[#fe9a00] mt-5 rounded-full"
+                        />
+
+                        {/* description */}
+                        <motion.p
+                            variants={aboutText}
+                            className="mt-6 text-slate-600 leading-relaxed max-w-md text-base md:text-lg"
+                        >
+                            We combine modern barber techniques with attention to detail
+                            to craft clean, sharp and personalized styles that elevate your image.
+                        </motion.p>
+
+                        {/* feature list */}
+                        <motion.div className="mt-10 space-y-4">
                             {items.map((item) => (
-
                                 <motion.div
                                     key={item}
                                     variants={listItem}
                                     className="flex items-center gap-3"
                                 >
-
-                                    <div className="bg-[#d58a3b] w-3 h-3 rounded-full" />
-
-                                    <p className="font-medium text-[#101522]">
-
+                                    <span className="w-2 h-2 rounded-full bg-[#fe9a00]" />
+                                    <p className="text-slate-700 text-sm md:text-base">
                                         {item}
-
                                     </p>
-
                                 </motion.div>
-
                             ))}
-
                         </motion.div>
-
                     </motion.div>
 
-
                     {/* RIGHT */}
-
                     <motion.div
                         variants={aboutImage}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.4 }}
                         className="relative"
                     >
-
-                        <div className="absolute -z-10 inset-0 bg-gradient-to-tr from-[#fe9a00]/20 to-transparent rounded-3xl blur-3xl" />
-
-                        {/* Floating card */}
-
-                        <motion.div
-                            variants={imageCard}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="absolute -left-8 bottom-8 z-20 bg-white px-6 py-4 rounded-2xl shadow-2xl border border-gray-100"
-                        >
-
-                            <p className="text-3xl font-bold text-[#d58a3b]">
-
-                                500+
-
-                            </p>
-
-                            <p className="text-sm text-gray-500">
-
-                                Satisfied Clients
-
-                            </p>
-
-                        </motion.div>
-
+                        {/* main image */}
                         <motion.img
                             src={AboutImg}
-                            alt="About"
-                            whileHover={{
-                                scale: 1.03
-                            }}
-                            transition={{
-                                duration: 0.6
-                            }}
-                            className="rounded-3xl shadow-2xl w-full"
+                            alt="Barber studio"
+                            className="rounded-3xl w-full shadow-2xl border border-slate-200"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.4 }}
                         />
 
+                        {/* floating stats card */}
+                        <motion.div
+                            variants={imageCard}
+                            className="absolute -bottom-6 left-6 bg-white/90 backdrop-blur-md border border-slate-200 px-5 py-3 rounded-xl shadow-lg"
+                        >
+                            <p className="text-[#fe9a00] font-semibold text-lg">
+                                500+
+                            </p>
+                            <p className="text-slate-500 text-xs">
+                                Happy clients served
+                            </p>
+                        </motion.div>
                     </motion.div>
 
                 </div>
-
             </div>
-
         </section>
-
     );
 }
 
