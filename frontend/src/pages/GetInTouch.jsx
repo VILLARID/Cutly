@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 
 import {
     contactHeader,
@@ -33,145 +33,95 @@ function GetInTouch() {
     ];
 
     return (
-
         <section
             id="contact"
-            className="relative overflow-hidden w-full py-30 px-6 bg-[#fffcef]"
+            className="relative w-full py-28 px-6 bg-[#f8fafc] overflow-hidden"
         >
 
-            {/* background effects */}
+            {/* soft background */}
+            <div className="absolute inset-0">
+                <div className="absolute top-0 left-0 w-120 h-120 bg-[#fe9a00]/10 blur-3xl rounded-full" />
+                <div className="absolute bottom-0 right-0 w-lg h-128 bg-slate-200/40 blur-3xl rounded-full" />
+            </div>
 
-            <div className="absolute top-0 left-0 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl"/>
+            <div className="relative max-w-6xl mx-auto">
 
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#d58a3b]/10 rounded-full blur-3xl"/>
-
-            <div className="max-w-7xl mx-auto relative z-10">
-
-                {/* Header */}
-
+                {/* HEADER */}
                 <motion.div
                     variants={contactHeader}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
-                    className="flex flex-col items-center text-center"
+                    viewport={{ once: true, amount: 0.4 }}
+                    className="text-center max-w-2xl mx-auto"
                 >
-
-                    <div className="bg-[#fef3c6] rounded-full px-5 py-2">
-
-                        <p className="text-[#d58a3b] text-sm font-medium">
-
-                            Get In Touch
-
-                        </p>
-
-                    </div>
-
-                    <h2 className="text-4xl lg:text-5xl font-bold text-[#101522] mt-6 leading-tight">
-
-                        Visit Our Shop
-
-                    </h2>
-
-                    <p className="text-gray-500 mt-5 max-w-lg leading-7">
-
-                        Ready for a fresh look? Experience premium
-                        grooming with expert barbers and personalized service.
-
+                    <p className="text-xs tracking-[0.25em] uppercase text-slate-500">
+                        Contact
                     </p>
 
+                    <h2 className="text-4xl md:text-5xl font-light text-slate-900 mt-4">
+                        Visit our studio,
+                        <br />
+                        <span className="text-[#fe9a00] font-semibold">
+                            book your next cut
+                        </span>
+                    </h2>
+
+                    <p className="text-slate-600 mt-6">
+                        Premium grooming experience with professional barbers and personalized attention.
+                    </p>
+
+                    {/* CTA button */}
+                    <a
+                        href="#"
+                        className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-[#fe9a00] text-white font-medium hover:shadow-[0_0_25px_rgba(254,154,0,0.4)] transition"
+                    >
+                        <MessageCircle size={18} />
+                        Book Appointment
+                    </a>
                 </motion.div>
 
-                {/* Cards */}
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                {/* CARDS */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
 
                     {mockData.map((item, index) => {
 
                         const Icon = item.icon;
 
                         return (
-
                             <motion.div
                                 key={item.id}
                                 variants={contactCard}
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{
-                                    once: true,
-                                    amount: 0.3
-                                }}
-                                transition={{
-                                    delay: index * 0.2
-                                }}
-                                className="relative group"
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ delay: index * 0.1 }}
+                                className="group"
                             >
 
-                                {/* floating square */}
+                                <div className="relative bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
 
-                                <div className={`
-                                absolute w-8 h-8 bg-[#d58a3b]
-                                rotate-45 rounded-md shadow-lg
-                                transition duration-500
-                                group-hover:rotate-90
-                                ${index % 2 === 0
-                                    ? "-top-3 -right-3"
-                                    : "-bottom-3 -left-3"
-                                }
-                                `}/>
-
-                                {/* Card */}
-
-                                <div
-                                    className="
-                                    relative
-                                    bg-white
-                                    rounded-[30px]
-                                    p-8
-                                    border border-gray-100
-                                    shadow-sm
-                                    hover:shadow-xl
-                                    hover:-translate-y-2
-                                    transition-all duration-500
-                                "
-                                >
-
-                                    <div
-                                        className="
-                                        w-16 h-16
-                                        rounded-2xl
-                                        bg-[#fef3c6]
-                                        flex items-center justify-center
-                                        group-hover:scale-110
-                                        transition
-                                    "
-                                    >
-
-                                        <Icon
-                                            className="text-[#d58a3b]"
-                                            size={28}
-                                        />
-
+                                    {/* icon */}
+                                    <div className="w-14 h-14 rounded-2xl bg-[#fef3c6] flex items-center justify-center group-hover:scale-110 transition">
+                                        <Icon className="text-[#fe9a00]" size={24} />
                                     </div>
 
-                                    <h3 className="text-xl font-bold mt-7 text-[#101522]">
-
+                                    {/* title */}
+                                    <h3 className="text-lg font-semibold text-slate-900 mt-6">
                                         {item.title}
-
                                     </h3>
 
-                                    <div className="mt-5 flex flex-col gap-2 text-gray-500">
-
+                                    {/* info */}
+                                    <div className="mt-4 text-slate-600 text-sm space-y-1">
                                         <p>{item.line1}</p>
-
                                         <p>{item.line2}</p>
-
                                     </div>
+
+                                    {/* subtle accent */}
+                                    <div className="absolute top-0 left-6 right-6 h-0.5 bg-linear-to-r from-[#fe9a00] to-transparent opacity-0 group-hover:opacity-100 transition" />
 
                                 </div>
 
                             </motion.div>
-
                         );
 
                     })}
@@ -179,11 +129,8 @@ function GetInTouch() {
                 </div>
 
             </div>
-
         </section>
-
     );
-
 }
 
 export default GetInTouch;
