@@ -12,157 +12,137 @@ function Testimonials() {
             id: 1,
             name: "Michael Johnson",
             role: "Regular Client",
-            review: "Best haircut experience I've had. The attention to detail is incredible.",
-            rating: 5
+            review: "Best haircut experience I've had. The attention to detail is incredible and the fade is always perfect.",
         },
         {
             id: 2,
             name: "David Smith",
             role: "Entrepreneur",
-            review: "Professional atmosphere and amazing service. Highly recommended.",
-            rating: 5
+            review: "Professional atmosphere and consistent quality. Every visit feels premium and well executed.",
         },
         {
             id: 3,
             name: "James Wilson",
             role: "Designer",
-            review: "Always leave feeling confident. Great team and excellent cuts.",
-            rating: 5
+            review: "I always leave feeling more confident. The precision and style are unmatched.",
+        },
+        {
+            id: 4,
+            name: "Carlos Rivera",
+            role: "Frequent Client",
+            review: "Clean cuts every time. They understand exactly what I want without needing explanation.",
+        },
+        {
+            id: 5,
+            name: "Daniel Carter",
+            role: "Business Owner",
+            review: "One of the best barbershops I’ve been to. Reliable, clean and very professional service.",
+        },
+        {
+            id: 6,
+            name: "Ryan Walker",
+            role: "Creative Director",
+            review: "Modern style with perfect execution. It’s more than a haircut, it’s a full experience.",
         }
     ];
 
     return (
-
         <section
             id="testimonials"
-            className="relative w-full py-28 px-6 bg-[#f9fafb] overflow-hidden"
+            className="relative w-full py-28 px-6 bg-[#f8fafb] overflow-hidden"
         >
 
-            {/* background glow */}
+            {/* background */}
+            <div className="absolute inset-0">
+                <div className="absolute top-20 left-10 w-lg h-128 bg-[#fe9a00]/10 blur-3xl rounded-full" />
+                <div className="absolute bottom-10 right-10 w-md h-112 bg-slate-200/40 blur-3xl rounded-full" />
+            </div>
 
-            <div className="absolute top-20 left-10 w-80 h-80 bg-[#fe9a00]/10 rounded-full blur-3xl" />
-
-            <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#d58a3b]/10 rounded-full blur-3xl" />
-
-            {/* Header */}
-
+            {/* HEADER */}
             <motion.div
                 variants={testimonialsHeader}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center gap-5"
+                viewport={{ once: true, amount: 0.4 }}
+                className="relative text-center max-w-2xl mx-auto"
             >
-
-                <div className="bg-[#fef3c6] px-5 py-2 rounded-full">
-
-                    <p className="text-[#d58a3b] text-sm font-medium">
-
-                        Testimonials
-
-                    </p>
-
-                </div>
-
-                <h2 className="text-4xl md:text-5xl font-bold text-[#101522]">
-
-                    Client Stories
-
-                </h2>
-
-                <p className="text-gray-600 max-w-md">
-
-                    Real experiences from clients who trust
-                    our craft and precision.
-
+                <p className="text-xs tracking-[0.25em] uppercase text-slate-500">
+                    Testimonials
                 </p>
 
+                <h2 className="text-4xl md:text-5xl font-light text-slate-900 mt-4">
+                    What clients say
+                    <br />
+                    <span className="text-[#fe9a00] font-semibold">
+                        about their experience
+                    </span>
+                </h2>
+
+                <p className="text-slate-600 mt-6">
+                    Real feedback from clients who trust our craft and consistency.
+                </p>
             </motion.div>
 
-            {/* Cards */}
-
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* GRID */}
+            <div className="relative mt-20 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 {testimonials.map((client, index) => (
-
                     <motion.div
                         key={client.id}
                         variants={testimonialCard}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{
-                            once: true,
-                            amount: 0.3
-                        }}
-                        transition={{
-                            delay: index * 0.2
-                        }}
-                        className="group relative bg-white rounded-3xl p-7 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ delay: index * 0.08 }}
+                        className="group relative"
                     >
 
-                        <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-[#d58a3b] to-transparent opacity-0 group-hover:opacity-100 transition" />
+                        {/* card glow */}
+                        <div className="absolute -inset-1 bg-[#fe9a00]/0 group-hover:bg-[#fe9a00]/10 blur-xl rounded-3xl transition duration-300" />
 
-                        {/* Stars */}
+                        <div className="relative bg-white border border-slate-200 rounded-3xl p-7 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
 
-                        <div className="flex gap-1 text-[#d58a3b] mb-4">
-
-                            {"★★★★★".split("").map((star, i) => (
-
-                                <span
-                                    key={i}
-                                    className="group-hover:scale-110 transition"
-                                >
-                                    {star}
-                                </span>
-
-                            ))}
-
-                        </div>
-
-                        {/* Review */}
-
-                        <p className="text-gray-600 leading-relaxed mb-8">
-
-                            "{client.review}"
-
-                        </p>
-
-                        {/* User */}
-
-                        <div className="flex items-center gap-4">
-
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d58a3b] to-[#fe9a00] flex items-center justify-center text-white font-semibold shadow-md">
-
-                                {client.name[0]}
-
+                            {/* stars */}
+                            <div className="flex gap-1 text-[#fe9a00] mb-5">
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                    <span
+                                        key={i}
+                                        className="group-hover:scale-110 transition"
+                                    >
+                                        ★
+                                    </span>
+                                ))}
                             </div>
 
-                            <div>
+                            {/* review */}
+                            <p className="text-slate-600 leading-relaxed mb-8 text-sm md:text-base">
+                                "{client.review}"
+                            </p>
 
-                                <h4 className="font-semibold text-[#101522]">
+                            {/* user */}
+                            <div className="flex items-center gap-4">
 
-                                    {client.name}
+                                <div className="w-11 h-11 rounded-2xl bg-linear-to-br from-[#fe9a00] to-[#d58a3b] flex items-center justify-center text-white font-semibold shadow-md">
+                                    {client.name[0]}
+                                </div>
 
-                                </h4>
-
-                                <p className="text-sm text-gray-500">
-
-                                    {client.role}
-
-                                </p>
+                                <div>
+                                    <h4 className="font-semibold text-slate-900">
+                                        {client.name}
+                                    </h4>
+                                    <p className="text-sm text-slate-500">
+                                        {client.role}
+                                    </p>
+                                </div>
 
                             </div>
 
                         </div>
-
                     </motion.div>
-
                 ))}
 
             </div>
-
         </section>
-
     );
 }
 
