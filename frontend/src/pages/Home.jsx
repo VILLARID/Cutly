@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import background from "../assets/Home/background.jpg";
-import white_logo from "../assets/Home/white_logo.png";
 
 import { fadeUp, scaleIn, staggerContainer } from "../animations/hero";
 
