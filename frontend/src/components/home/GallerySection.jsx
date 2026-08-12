@@ -29,18 +29,18 @@ const aspectClasses = [
     "aspect-[3/4] lg:aspect-auto",
 ];
 
-function GalleryPreview() {
+function GallerySection() {
     const reveal = useReveal();
 
     return (
-        <section id="gallery" className="overflow-hidden bg-white py-16 lg:py-28">
-            <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
+        <section id="gallery" className="overflow-hidden bg-[#0E0E0D] py-16 lg:py-[100px]">
+            <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
                 <SectionHeader
-                    eyebrow="Our Gallery"
+                    eyebrow="Gallery"
                     title={
                         <>
                             Cuts that speak
-                            <span className="text-[#C97B00]"> for themselves.</span>
+                            <span className="text-[#E2AD36]"> for themselves.</span>
                         </>
                     }
                     link={{
@@ -58,24 +58,24 @@ function GalleryPreview() {
                             transition={{
                                 duration: 0.5,
                                 ease: "easeOut",
-                                delay: (index % 3) * 0.06,
+                                delay: (index % 3) * 0.07,
                             }}
-                            className="group relative overflow-hidden rounded-[14px]"
+                            className="group relative overflow-hidden rounded-[10px] border border-white/[0.04]"
                         >
                             <div className={`h-full w-full overflow-hidden ${aspectClasses[index]}`}>
                                 <img
                                     src={item.src}
                                     alt={`${item.label} haircut at Cutly`}
-                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                                 />
                             </div>
 
-                            {/* soft bottom label */}
+                            {/* dark overlay + label on hover */}
                             <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                                className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                                 aria-hidden="true"
                             />
-                            <figcaption className="absolute bottom-3 left-3 translate-y-2 text-sm font-medium text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                            <figcaption className="absolute bottom-3 left-3 translate-y-2 text-sm font-medium text-[#F3EFE7] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                                 {item.label}
                             </figcaption>
                         </motion.figure>
@@ -86,4 +86,4 @@ function GalleryPreview() {
     );
 }
 
-export default GalleryPreview;
+export default GallerySection;

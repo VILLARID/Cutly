@@ -10,42 +10,38 @@ import ethanPhoto from "../../assets/Barbers/barber-ethan.svg";
 const barbers = [
     {
         name: "Alex Morgan",
-        role: "Founder & Master Barber",
-        bio: "20+ years mastering classic cuts and modern fades with surgical precision.",
+        role: "Senior Barber",
+        bio: "Precision-led specialist with a sharp eye for texture and tailored detail.",
         photo: alexPhoto,
     },
     {
-        name: "Dylan Carter",
-        role: "Senior Barber",
-        bio: "Precision-led specialist with a sharp eye for texture and tailored detail.",
+        name: "Daniel Cruz",
+        role: "Master Barber",
+        bio: "Two decades shaping classic styles with an instinct for what fits.",
         photo: dylanPhoto,
     },
     {
-        name: "Ethan Brooks",
-        role: "Barber",
-        bio: "Clean and consistent, always ready to talk through the style that fits you.",
+        name: "James Lee",
+        role: "Styling Specialist",
+        bio: "Modern styling and sharp finishes, always tailored to your look.",
         photo: ethanPhoto,
     },
 ];
 
-function BarbersPreview() {
+function BarbersSection() {
     const reveal = useReveal();
 
     return (
-        <section id="barbers" className="overflow-hidden bg-[#F5F2EC] py-16 lg:py-28">
-            <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
+        <section id="barbers" className="overflow-hidden bg-[#131210] py-16 lg:py-[100px]">
+            <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
                 <SectionHeader
-                    eyebrow="Meet Our Barbers"
+                    eyebrow="Our Barbers"
                     title={
                         <>
-                            Experts in <span className="text-[#C97B00]">their craft.</span>
+                            Meet the experts
+                            <span className="text-[#E2AD36]"> behind the chair.</span>
                         </>
                     }
-                    link={{
-                        label: "View All Barbers",
-                        ariaLabel: "View all barbers",
-                        href: "#barbers",
-                    }}
                 />
 
                 <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
@@ -58,24 +54,29 @@ function BarbersPreview() {
                                 ease: "easeOut",
                                 delay: index * 0.08,
                             }}
-                            className="group overflow-hidden rounded-xl border border-black/[0.06] bg-white transition-all duration-300 hover:-translate-y-[2px] hover:border-[#E39100]/40 hover:shadow-[0_18px_36px_-22px_rgba(23,23,23,0.22)]"
+                            className="group overflow-hidden rounded-[10px] border border-[rgba(217,165,46,0.16)] bg-[#161412] transition-all duration-300 hover:-translate-y-[2px] hover:border-[rgba(217,165,46,0.42)]"
                         >
-                            <div className="relative aspect-[4/5] overflow-hidden bg-[#F5F2EC]">
+                            <div className="relative aspect-[4/5] overflow-hidden bg-[#131210]">
                                 <img
                                     src={barber.photo}
                                     alt={`${barber.name} — ${barber.role}`}
-                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                />
+                                {/* subtle bottom fade */}
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-t from-[#161412] via-transparent to-transparent"
+                                    aria-hidden="true"
                                 />
                             </div>
 
                             <div className="p-6">
-                                <h3 className="font-serif text-[22px] font-medium leading-none text-[#171717]">
+                                <h3 className="font-serif text-[22px] font-medium leading-none text-[#F3EFE7]">
                                     {barber.name}
                                 </h3>
-                                <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#C97B00]">
+                                <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#D9A52E]">
                                     {barber.role}
                                 </p>
-                                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                                <p className="mt-3 text-sm leading-relaxed text-white/60">
                                     {barber.bio}
                                 </p>
                             </div>
@@ -87,4 +88,4 @@ function BarbersPreview() {
     );
 }
 
-export default BarbersPreview;
+export default BarbersSection;

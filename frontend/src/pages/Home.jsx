@@ -1,11 +1,12 @@
 import Hero from "../components/home/Hero";
-import ServicesPreview from "../components/home/ServicesPreview";
-import ExperienceSection from "../components/home/ExperienceSection";
-import BarbersPreview from "../components/home/BarbersPreview";
-import GalleryPreview from "../components/home/GalleryPreview";
+import StatsBar from "../components/home/StatsBar";
+import ServicesSection from "../components/home/ServicesSection";
+import WhyCutly from "../components/home/WhyCutly";
+import BarbersSection from "../components/home/BarbersSection";
+import GallerySection from "../components/home/GallerySection";
 import Testimonials from "../components/home/Testimonials";
 import BookingCTA from "../components/home/BookingCTA";
-import LocationSection from "../components/home/LocationSection";
+import ContactSection from "../components/home/ContactSection";
 import Footer from "../components/home/Footer";
 
 function Home() {
@@ -13,13 +14,14 @@ function Home() {
         <>
             <main>
                 <Hero />
-                <ServicesPreview />
-                <ExperienceSection />
-                <BarbersPreview />
-                <GalleryPreview />
+                <StatsBar />
+                <ServicesSection />
+                <WhyCutly />
+                <BarbersSection />
+                <GallerySection />
                 <Testimonials />
                 <BookingCTA />
-                <LocationSection />
+                <ContactSection />
             </main>
             <Footer />
         </>

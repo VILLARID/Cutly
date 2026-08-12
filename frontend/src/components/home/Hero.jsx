@@ -1,184 +1,157 @@
 import { motion } from "framer-motion";
-import {
-    ArrowRight,
-    Calendar,
-    CalendarCheck,
-    Clock,
-    Star,
-    UsersRound,
-} from "lucide-react";
+import { ArrowRight, Calendar, Star } from "lucide-react";
 
 import heroImage from "../../assets/Home/background.jpg";
-import { useReveal, useRevealRight } from "./motion";
-import TrustStats from "./TrustStats";
+import { useReveal } from "./motion";
 
-const heroStats = [
-    {
-        value: "500+",
-        label: "Clients",
-        icon: UsersRound,
-    },
-    {
-        value: "4.9",
-        label: "Rating",
-        icon: Star,
-    },
-    {
-        value: "Same-Day",
-        label: "Booking",
-        icon: CalendarCheck,
-    },
+const avatarInitials = ["JM", "KR", "AS", "DT"];
+
+const avatarColors = [
+    "bg-[#D9A52E]/25 text-[#E2AD36]",
+    "bg-white/10 text-white/80",
+    "bg-[#D9A52E]/15 text-[#F3EFE7]",
+    "bg-white/5 text-white/60",
 ];
 
 function Hero() {
-    const reveal = useReveal();
-    const revealRight = useRevealRight();
+    const reveal = useReveal(0.15);
 
     return (
-        <section id="home" className="relative overflow-hidden bg-[#FAF9F6]">
-            {/* subtle transition blend under the dark navbar */}
+        <section id="home" className="relative flex min-h-[640px] items-center overflow-hidden bg-[#0E0E0D] lg:min-h-[700px]">
+            {/* EXISTING HERO BACKGROUND — do not replace */}
+            <div className="absolute inset-0" aria-hidden="true">
+                <img
+                    src={heroImage}
+                    alt=""
+                    className="h-full w-full object-cover object-center"
+                />
+            </div>
+
+            {/* cinematic dark overlay: legible left, photography right */}
             <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-[90px] bg-[linear-gradient(180deg,rgba(23,21,18,0.05)_0%,transparent_80px)]"
+                className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,8,0.96)_0%,rgba(8,8,8,0.82)_38%,rgba(8,8,8,0.28)_68%,rgba(8,8,8,0.08)_100%)]"
+                aria-hidden="true"
+            />
+            {/* extra darkness at the very top for a seamless blend under the navbar */}
+            <div
+                className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(8,8,8,0.95)_0%,rgba(8,8,8,0)_100%)]"
                 aria-hidden="true"
             />
 
-            {/* soft warm background accents */}
-            <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-                <div className="absolute -left-40 top-16 size-[28rem] rounded-full bg-[#E39100]/[0.07] blur-3xl" />
-                <div className="absolute -right-32 bottom-0 size-[24rem] rounded-full bg-[#C9A227]/10 blur-3xl" />
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[1360px] px-4 pt-20 sm:px-6 lg:px-8 lg:pt-[84px]">
-                <div className="grid w-full items-center gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-[72px]">
-                    {/* LEFT CONTENT */}
-                    <div className="max-w-xl">
-                        <motion.p
-                            {...reveal}
-                            transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
-                            className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C97B00]"
-                        >
-                            Premium Barber Experience
-                        </motion.p>
-
-                        <motion.h1
-                            {...reveal}
-                            transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
-                            className="mt-6 font-serif text-[40px] font-medium leading-[1] text-[#171717] sm:text-[48px] lg:text-[clamp(52px,4.2vw,72px)]"
-                        >
-                            More than a cut,
-                            <br />
-                            <span className="text-[#C97B00]">it&rsquo;s your image.</span>
-                        </motion.h1>
-
-                        <motion.p
-                            {...reveal}
-                            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-                            className="mt-6 max-w-[530px] text-base leading-relaxed text-neutral-600 md:text-lg"
-                        >
-                            Modern barber studio focused on precision, style and
-                            confidence. Get a clean look that actually fits you.
-                        </motion.p>
-
-                        {/* CTA */}
-                        <motion.div
-                            {...reveal}
-                            transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
-                            className="mt-7 flex flex-col gap-3 sm:flex-row"
-                        >
-                            <a
-                                href="#contact"
-                                className="inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#E39100] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#C97B00] hover:shadow-[0_10px_22px_-10px_rgba(201,123,0,0.6)] active:translate-y-0 sm:w-auto"
-                            >
-                                <Calendar className="size-4" aria-hidden="true" />
-                                Book Appointment
-                            </a>
-
-                            <a
-                                href="#services"
-                                className="group inline-flex w-full items-center justify-center gap-2 rounded-[10px] border border-black/15 bg-white px-6 py-3.5 text-sm font-semibold text-[#171717] transition-all duration-200 hover:border-[#171717]/30 hover:bg-[#F5F2EC] sm:w-auto"
-                            >
-                                See Our Services
-                                <ArrowRight
-                                    className="size-4 transition-transform duration-200 group-hover:translate-x-1"
-                                    aria-hidden="true"
-                                />
-                            </a>
-                        </motion.div>
-
-                        {/* hero stats */}
-                        <motion.div
-                            {...reveal}
-                            transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
-                            className="mt-[30px] grid grid-cols-3 gap-x-4 gap-y-5 border-t border-black/[0.06] pt-7 sm:flex sm:items-center sm:gap-0 sm:divide-x sm:divide-black/10 sm:border-t-0 sm:pt-0"
-                        >
-                            {heroStats.map((stat, index) => {
-                                const Icon = stat.icon;
-                                return (
-                                    <div
-                                        key={stat.label}
-                                        className={`flex flex-col items-center gap-2 text-center sm:flex-row sm:items-center sm:gap-3 sm:text-left ${
-                                            index === 0 ? "sm:pr-6" : "sm:px-6"
-                                        }`}
-                                    >
-                                        <span className="flex size-9 shrink-0 items-center justify-center rounded-[10px] bg-[#E39100]/10 text-[#C97B00] sm:size-10">
-                                            <Icon className="size-4 sm:size-5" strokeWidth={1.9} aria-hidden="true" />
-                                        </span>
-                                        <span>
-                                            <span className="block text-[15px] font-semibold leading-none text-[#171717] sm:text-lg">
-                                                {stat.value}
-                                            </span>
-                                            <span className="mt-1 block text-[11px] text-neutral-500 sm:text-xs">
-                                                {stat.label}
-                                            </span>
-                                        </span>
-                                    </div>
-                                );
-                            })}
-                        </motion.div>
-                    </div>
-
-                    {/* RIGHT VISUAL */}
-                    <motion.div {...revealRight} className="relative mx-auto w-full max-w-md lg:max-w-none">
-                        {/* dots decoration */}
-                        <div
-                            className="absolute -right-6 -top-6 hidden grid-cols-3 gap-2 lg:grid"
+            <div className="relative mx-auto w-full max-w-[1480px] px-4 pt-28 pb-16 sm:px-6 lg:px-8 lg:pt-[110px] lg:pb-20 2xl:px-10">
+                <div className="max-w-[560px]">
+                    <motion.p
+                        {...reveal}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
+                        className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#E2AD36]"
+                    >
+                        <span
+                            className="inline-block h-px w-8 bg-[#E2AD36]/70"
                             aria-hidden="true"
+                        />
+                        Premium Barber Experience
+                    </motion.p>
+
+                    <motion.h1
+                        {...reveal}
+                        transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
+                        className="mt-6 font-serif text-[clamp(44px,5vw,78px)] font-medium leading-[0.95] text-[#F3EFE7]"
+                    >
+                        More than a cut,
+                        <br />
+                        <span className="text-[#E2AD36]">it&rsquo;s your image.</span>
+                    </motion.h1>
+
+                    {/* decorative gold hairline */}
+                    <motion.span
+                        {...reveal}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.12 }}
+                        className="mt-7 block h-[2px] w-16 rounded-full bg-[#D9A52E]/70"
+                        aria-hidden="true"
+                    />
+
+                    <motion.p
+                        {...reveal}
+                        transition={{ duration: 0.55, ease: "easeOut", delay: 0.16 }}
+                        className="mt-6 max-w-[450px] text-[17px] leading-relaxed text-white/60 md:text-lg"
+                    >
+                        Precision cuts. Premium grooming.
+                        <br />
+                        Confidence that speaks before you do.
+                    </motion.p>
+
+                    {/* CTA */}
+                    <motion.div
+                        {...reveal}
+                        transition={{ duration: 0.55, ease: "easeOut", delay: 0.22 }}
+                        className="mt-9 flex flex-col gap-3 sm:flex-row"
+                    >
+                        <a
+                            href="#contact"
+                            className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#D9A52E] px-7 py-3.5 text-sm font-semibold text-[#161310] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E2AD36] active:translate-y-0 sm:w-auto"
                         >
-                            {Array.from({ length: 9 }).map((_, i) => (
+                            <Calendar className="size-[18px]" aria-hidden="true" />
+                            Book Appointment
+                        </a>
+
+                        <a
+                            href="#services"
+                            className="group inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#D9A52E]/35 bg-transparent px-7 py-3.5 text-sm font-semibold text-[#F3EFE7] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#D9A52E]/70 hover:text-[#E2AD36] active:translate-y-0 sm:w-auto"
+                        >
+                            See Our Services
+                            <ArrowRight
+                                className="size-4 transition-transform duration-200 group-hover:translate-x-1"
+                                aria-hidden="true"
+                            />
+                        </a>
+                    </motion.div>
+
+                    {/* SOCIAL PROOF */}
+                    {/*
+                        avatar group with fictional clients (no photos available,
+                        so initials-based avatars + rating)
+                    */}
+                    <motion.div
+                        {...reveal}
+                        transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 }}
+                        className="mt-10 flex items-center gap-4"
+                    >
+                        <div className="flex -space-x-2.5" aria-hidden="true">
+                            {avatarInitials.map((initials, index) => (
                                 <span
-                                    key={i}
-                                    className="size-1.5 rounded-full bg-[#E39100]/60"
-                                />
+                                    key={initials}
+                                    className={`flex size-9 items-center justify-center rounded-full border-2 border-[#1A1917] font-serif text-[11px] font-semibold ${avatarColors[index]}`}
+                                >
+                                    {initials}
+                                </span>
                             ))}
                         </div>
 
-                        <div className="overflow-hidden rounded-[18px] border border-black/[0.06] bg-[#F5F2EC] shadow-[0_28px_60px_-34px_rgba(23,23,23,0.45)] lg:h-[min(52vh,540px)] lg:max-h-[540px] lg:min-h-[420px]">
-                            <img
-                                src={heroImage}
-                                alt="Barber giving a precision haircut at Cutly premium barber studio"
-                                className="aspect-[4/3] w-full object-cover object-center lg:aspect-auto lg:h-full"
-                            />
-                        </div>
-
-                        {/* floating availability card */}
-                        <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-xl border border-black/[0.06] bg-white px-4 py-3 shadow-[0_16px_34px_-18px_rgba(23,23,23,0.3)] sm:bottom-6 sm:left-6">
-                            <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#E39100]/10 text-[#C97B00]">
-                                <Clock className="size-5" aria-hidden="true" />
-                            </span>
-                            <span>
-                                <span className="block text-sm font-semibold text-[#171717]">
-                                    Next available
+                        <div className="flex flex-col gap-0.5">
+                            <div
+                                className="flex items-center gap-1.5"
+                                role="img"
+                                aria-label="Rated 4.9 out of 5 stars"
+                            >
+                                <span className="flex gap-0.5">
+                                    {Array.from({ length: 5 }).map((_, i) => (
+                                        <Star
+                                            key={i}
+                                            className="size-3.5 fill-[#E2AD36] text-[#E2AD36]"
+                                            aria-hidden="true"
+                                        />
+                                    ))}
                                 </span>
-                                <span className="mt-0.5 block text-xs text-neutral-500">
-                                    Today · 4:30 PM
+                                <span className="text-sm font-semibold text-[#F3EFE7]">
+                                    4.9
                                 </span>
-                            </span>
+                            </div>
+                            <p className="text-xs text-white/60">
+                                Trusted by 500+ clients
+                            </p>
                         </div>
                     </motion.div>
                 </div>
-
-                {/* trust stats — part of the hero */}
-                <TrustStats />
             </div>
         </section>
     );

@@ -7,21 +7,21 @@ import { useReveal } from "./motion";
 const testimonials = [
     {
         quote:
-            "Best barber experience I've had. Clean fades, great vibe and the team is super professional.",
-        name: "James T.",
-        initials: "JT",
+            "Best barber experience I've ever had. The fade was perfect and the vibe is next level.",
+        name: "Michael T.",
+        initials: "MT",
     },
     {
         quote:
-            "Alex knows exactly what works for me. Consistent, sharp and worth every penny.",
-        name: "Michael R.",
-        initials: "MR",
+            "Cutly is the real deal. Professional, clean and my haircut always turns out amazing.",
+        name: "David R.",
+        initials: "DR",
     },
     {
         quote:
-            "Amazing attention to detail and a premium experience from start to finish.",
-        name: "David L.",
-        initials: "DL",
+            "Finally found a place that understands style and quality. Highly recommend Cutly.",
+        name: "James W.",
+        initials: "JW",
     },
 ];
 
@@ -29,20 +29,16 @@ function Testimonials() {
     const reveal = useReveal();
 
     return (
-        <section id="reviews" className="overflow-hidden bg-[#F5F2EC] py-16 lg:py-28">
-            <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
+        <section id="reviews" className="overflow-hidden bg-[#131210] py-16 lg:py-[100px]">
+            <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
                 <SectionHeader
                     eyebrow="What Our Clients Say"
                     title={
                         <>
-                            Real people. <span className="text-[#C97B00]">Real results.</span>
+                            Real people.
+                            <span className="text-[#E2AD36]"> Real style.</span>
                         </>
                     }
-                    link={{
-                        label: "View All Reviews",
-                        ariaLabel: "View all reviews",
-                        href: "#reviews",
-                    }}
                 />
 
                 <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
@@ -55,10 +51,10 @@ function Testimonials() {
                                 ease: "easeOut",
                                 delay: index * 0.08,
                             }}
-                            className="flex flex-col rounded-2xl border border-black/[0.06] bg-white p-7 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#E39100]/40 hover:shadow-[0_18px_36px_-22px_rgba(23,23,23,0.2)]"
+                            className="flex flex-col rounded-[10px] border border-[rgba(217,165,46,0.16)] bg-[#161412] p-7 transition-all duration-300 hover:-translate-y-[2px] hover:border-[rgba(217,165,46,0.42)]"
                         >
                             <div className="flex items-center justify-between gap-4">
-                                <span className="flex size-10 items-center justify-center rounded-[10px] bg-[#E39100]/10 text-[#C97B00]">
+                                <span className="flex size-10 items-center justify-center rounded-[8px] border border-[rgba(217,165,46,0.18)] bg-[#D9A52E]/10 text-[#D9A52E]">
                                     <Quote className="size-5 fill-current" aria-hidden="true" />
                                 </span>
 
@@ -70,26 +66,26 @@ function Testimonials() {
                                     {Array.from({ length: 5 }).map((_, i) => (
                                         <Star
                                             key={i}
-                                            className="size-4 fill-[#E39100] text-[#E39100]"
+                                            className="size-4 fill-[#E2AD36] text-[#E2AD36]"
                                             aria-hidden="true"
                                         />
                                     ))}
                                 </div>
                             </div>
 
-                            <blockquote className="mt-5 flex-1 text-[15px] leading-relaxed text-neutral-700">
+                            <blockquote className="mt-5 flex-1 text-[15px] leading-relaxed text-white/75">
                                 &ldquo;{testimonial.quote}&rdquo;
                             </blockquote>
 
-                            <footer className="mt-6 flex items-center gap-3 border-t border-black/[0.06] pt-5">
-                                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#E39100]/10 font-serif text-sm font-semibold text-[#C97B00]">
+                            <footer className="mt-6 flex items-center gap-3 border-t border-white/[0.06] pt-5">
+                                <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[rgba(217,165,46,0.3)] bg-[#D9A52E]/12 font-serif text-sm font-semibold text-[#E2AD36]">
                                     {testimonial.initials}
                                 </span>
                                 <div>
-                                    <p className="text-sm font-semibold text-[#171717]">
+                                    <p className="text-sm font-semibold text-[#F3EFE7]">
                                         {testimonial.name}
                                     </p>
-                                    <p className="text-xs text-neutral-500">
+                                    <p className="text-xs text-white/50">
                                         Verified Client
                                     </p>
                                 </div>
