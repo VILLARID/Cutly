@@ -1,7 +1,6 @@
 import Hero from "../components/home/Hero";
 import StatsBar from "../components/home/StatsBar";
 import ServicesSection from "../components/home/ServicesSection";
-import WhyCutly from "../components/home/WhyCutly";
 import BarbersSection from "../components/home/BarbersSection";
 import GallerySection from "../components/home/GallerySection";
 import Testimonials from "../components/home/Testimonials";
@@ -16,7 +15,6 @@ function Home() {
                 <Hero />
                 <StatsBar />
                 <ServicesSection />
-                <WhyCutly />
                 <BarbersSection />
                 <GallerySection />
                 <Testimonials />
